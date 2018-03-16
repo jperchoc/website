@@ -6,9 +6,14 @@
     return {
         templateUrl: 'directives/sidebar/sidebar.html',
         bindToController: true,
-        controller: function(SideBarService, $location, $rootScope) {
+        controller: function(SideBarService, $location, $rootScope, $mdMedia) {
           let vm = this;
+          
+          vm.isScreenSmall = function() {
+            return $mdMedia('gt-md') === false;
+          }
 
+          vm.isopensidenav = vm.isScreenSmall() === false;
           vm.links = SideBarService.getLinks();
 
           vm.isSelected = function(link) {
@@ -20,6 +25,7 @@
           vm.dropdownaboutmeopened = true;
           vm.dropdownprojectopened = true;
 
+          console.log();
           //initSideBarOpen();
           //vm.dropdownprojectopened = !vm.dropdownaboutmeopened;
 

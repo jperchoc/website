@@ -5,6 +5,13 @@
     background-color: #272822;
     display: inline-block;
 }
+
+.miniSide {
+  padding: 5px;
+  height: 98.4%;
+  background-color: #2d9688;
+}
+
 .iframe_holder {
  text-align:center;
 }
