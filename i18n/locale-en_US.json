@@ -1,8 +1,9 @@
 {
-  "TEST": "Bonjour le monde !",
   "Projects": {
     "GuitarChords": {
-      "Presentation": "This is a quick tool for musicians, especially guitarist. It allows you to see which notes are part of a chord, and where they are."
+      "Title":"Guitar Chords",
+      "Presentation": "This is a quick tool for musicians, especially guitarist. It allows you to see which notes are part of a chord, and where they are.",
+      "Code1": "First, I need to declare a few constants to describe notes. I have an array containing all notes and alterations, an array containing \"white keys\" and another for \"black keys\". I define some colors for my notes, and finally an enum for the    different modes."
     }
   }
 }

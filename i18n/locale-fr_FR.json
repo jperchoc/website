@@ -1,8 +1,10 @@
 {
-  "TEST": "Bonjour le monde !",
   "Projects": {
     "GuitarChords": {
-      "Presentation": "Cet outil permet aux musiciens, en particulier les guitaristes, de trouver les notes d'un accord en fonction de la fondamentale et du mode.<br>L'affichage permet de visualiser l'emplacement des notes sur un piano ou une guitare. Il est également possible de modifier l'accordage de la guitare."
+      "Title":"Guitar Chords",
+      "Presentation": "Cet outil permet aux musiciens, en particulier les guitaristes, de trouver les notes d'un accord en fonction de la fondamentale et du mode. <br/>L'affichage permet de visualiser l'emplacement des notes sur un piano ou une guitare. Il est également possible de modifier l'accordage de la guitare.",
+      "Code1": "On commence par déclarer quelques constantes contenant la structure des notes. On crée ainsi un tableau contenant toutes les notes et altérations, ainsi que des tableaux séparés pour les \"noires\" et les \"blanches\".<br/>On ajoute un tableau pour les couleurs ainsi qu'une énumération pour les différents modes."
+
     }
   }
 }
