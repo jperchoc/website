@@ -6,9 +6,12 @@
     display: inline-block;
 }
 
+.side-bar-left{
+  height: calc(100% - 1px)!important;
+}
 .miniSide {
+  height: calc(100% - 10px)!important;
   padding: 5px;
-  height: 98.4%;
   background-color: #2d9688;
 }
 
