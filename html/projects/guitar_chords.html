@@ -1,0 +1,235 @@
+<h1>Guitar chords</h1>
+<div>
+    <card-content title="Presentation" collapsible="true" open-on-start="true">
+      <p>
+        {{'Projects.GuitarChords.Presentation' | translate}}
+      </p>
+    </card-content>
+
+  <!-- <demo width="840" height="550" src="0AcR6N"></demo> -->
+  <demo width="795" height="420" src="guitar_chords/index.html"></demo>
+
+  <card-content title="Code" collapsible="true" open-on-start="false">
+    <p>
+      First, I need to declare a few constants to describe notes. I have an array containing all notes and alterations, an array
+      containing "white keys" and another for "black keys". I define some colors for my notes, and finally an enum for the
+      different modes.
+    </p>
+    <code-exemple language="js">
+      const MusicToolsConstants = {
+        NOTES: ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'],
+        WHITE_NOTES: ['A','B','C','D','E','F','G'],
+        BLACK_NOTES: ['A#','C#','D#','F#','G#'],
+        NOTES_COLORS: ['#c83232', '#32c832', '#6868d9', '#c832c8', '#c8c832', '#b464c8', '#c8b464'],
+        MODES: {
+          Major:           0,
+          Minor:           1,
+          Diminished:      2,
+          MajorSeventh:    3,
+          MinorSeventh:    4,
+          DominantSeventh: 5,
+          Suspended2:      6,
+          Suspended4:      7,
+          Augmented:       8,
+          DominantNinth:   9,
+          MajorEleventh:   10
+        }
+      };
+    </code-exemple>
+    <p>I now can create a function that gives me the notes of a chord, based on the root note and the mode.</p>
+    <code-exemple language="js">
+      class MusicTools {
+        static getChord(root, mode) {
+          let idxRoot = MusicToolsConstants.NOTES.indexOf(root);
+          let chordNotes = [root];
+          switch(mode) {
+            case MusicToolsConstants.MODES.Major:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 4) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.Minor:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 3) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.Diminished:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 3) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 6) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.MajorSeventh:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 4) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 5) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 11) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.MinorSeventh:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 3) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 10) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.DominantSeventh:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 4) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 10) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.Suspended2:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 2) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.Suspended4:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 5) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.Augmented:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 4) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 8) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.DominantNinth:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 4) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 10) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 14) % MusicToolsConstants.NOTES.length]);
+              break;
+            case MusicToolsConstants.MODES.MajorEleventh:
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 4) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 7) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 11) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 14) % MusicToolsConstants.NOTES.length]);
+              chordNotes.push(MusicToolsConstants.NOTES[(idxRoot + 17) % MusicToolsConstants.NOTES.length]);
+              break;
+          }
+          return chordNotes;
+        }
+      }
+    </code-exemple>
+    <p>
+      As I am able to get the notes of a chord, I can work on the visual. Let's first create a piano.
+    </p>
+    <code-exemple language="js">
+        class Piano {
+          constructor() {
+            this.root = "A";
+            this.mode = MusicToolsConstants.MODES.Major;
+          }
+        
+          setRoot(root) {
+            this.root = root;
+          }
+        
+          setMode(mode) {
+            this.mode = mode;
+          }
+        
+          setChord(root, mode) {
+            this.setRoot(root);
+            this.setMode(mode);
+          }
+        
+          getChordNotes() {
+            return this.root !== null && this.mode !== null
+              ? MusicTools.getChord(this.root, this.mode)
+              : [];
+          }
+        
+          draw(x, y) {
+            let chordNotes = this.getChordNotes();
+            let wW = 30;
+            let wH = 100;
+            let bW = 20;
+            let bH = 80;
+            for (let k = 0; k < 3; k++) {
+              let offset = k * (7*wW);
+              for (let i = 0; i < 7; i++) {
+                let note = MusicToolsConstants.WHITE_NOTES[i];
+                let idx = chordNotes.indexOf(note);
+                if (idx !== -1) fill(MusicToolsConstants.NOTES_COLORS[idx]);
+                else fill(255);
+                rect(offset + x + i * wW, y, wW, wH);
+                fill(0);
+                text(note, offset + x + i * wW + wW/2, y + wH - 10);
+              }
+              
+              for (let i = 0; i < 6; i++) {
+                if (i !== 2) {
+                  let note = MusicToolsConstants.BLACK_NOTES[i > 2 ? i-1:i];
+                  let idx = chordNotes.indexOf(note);
+                  if (idx !== -1) fill(MusicToolsConstants.NOTES_COLORS[idx]);
+                  else fill(50);
+                  rect(offset + x + (i + 1) * wW - bW / 2, y, bW, bH);
+                  fill(200);
+                  text(note, offset + x + (i + 1) * wW, y + bH - 10);
+                }
+              }
+            }
+          }
+        }
+    </code-exemple>
+
+    <p>Finally, I can add my guitar.</p>
+    <code-exemple language="js">
+        class Guitar {
+          constructor(tuning) {
+            this.setTuning(tuning);
+            this.root = "A";
+            this.mode = MusicToolsConstants.MODES.Major;
+          }
+        
+          setTuning(tuning) {
+            this.tuning = tuning.split("");
+            console.log(this.tuning);
+          }
+        
+          draw(nFrets, x, y, r, xSpace, ySpace) {
+            //Draw Strings
+            for (let i = 0; i < this.tuning.length; i++) {
+              let note = this.tuning[this.tuning.length - 1 - i];
+              this.drawLineNotes(note, nFrets, x, y + i * (r + ySpace), xSpace, r);
+            }
+            //Draw frets number
+            for (let i = 0; i <= nFrets; i++) {
+              fill(200);
+              let ty = 15 + y + this.tuning.length * (r + ySpace);
+              let tx = x + r * (i + 1) + i * xSpace;
+              text(i, tx, ty);
+            }
+          }
+        
+          setRoot(root) {
+            this.root = root;
+          }
+        
+          setMode(mode) {
+            this.mode = mode;
+          }
+        
+          setChord(root, mode) {
+            this.setRoot(root);
+            this.setMode(mode);
+          }
+        
+          getChordNotes() {
+            return this.root !== null && this.mode !== null
+              ? MusicTools.getChord(this.root, this.mode)
+              : [];
+          }
+        
+          drawLineNotes(firstNote, nNotes, startx, starty, marginXNotes, r) {
+            let startIdx = MusicToolsConstants.NOTES.indexOf(firstNote);
+            let chordNotes = this.getChordNotes();
+            for (let i = 0; i <= nNotes; i++) {
+              let note =
+                MusicToolsConstants.NOTES[
+                  (startIdx + i) % MusicToolsConstants.NOTES.length
+                ];
+              let idx = chordNotes.indexOf(note);
+              if (idx !== -1) fill(MusicToolsConstants.NOTES_COLORS[idx]);
+              else fill(255);
+              let x = startx + r * (i + 1) + i * marginXNotes;
+              let y = r + starty;
+              ellipse(x, y, r);
+              fill(0);
+              text(note, x, y);
+            }
+          }
+        }        
+    </code-exemple>
+  </card-content>
+</div>

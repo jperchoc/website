@@ -1,0 +1,6 @@
+<a class="no-animate" ng-class="{'code-hider' : vm.showcode === true}" ng-click="vm.showcode = !vm.showcode" style="cursor: pointer; color:#FF9800">
+  <i class="material-icons" style="vertical-align: middle">
+    {{vm.showcode ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}
+  </i>{{vm.showcode ? 'Hide' : 'Show'}} code
+</a>
+<pre ng-if="vm.showcode" id="style-12"><code ng-prism class="lang-{{vm.language}}" ng-transclude></code></pre>

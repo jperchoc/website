@@ -1,0 +1,15 @@
+<md-toolbar md-dynamic-height md-border-bottom>
+    <div class="md-toolbar-tools">
+      <a href="" ng-click="vm.commute()">
+        <h3>
+          <i ng-if="vm.collapsible" class="material-icons" style="vertical-align: bottom">
+            {{vm.getShow() ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}
+          </i>
+          {{vm.title}}
+        </h3>
+      </a>
+      <span flex="" class="flex"></span>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding demo-content" ng-show="vm.getShow()" ng-transclude>
+  </md-content>

@@ -1,0 +1,28 @@
+<!-- <md-toolbar md-dynamic-height md-border-bottom>
+    <div class="md-toolbar-tools">
+      <a href="" ng-click="vm.commuteDemo()">
+        <h3>Demo</h3>
+      </a>
+      <span flex="" class="flex"></span>
+      <a href="" ng-click="vm.commuteDemo()">
+        <i ng-if="!vm.getShowDemo()" class="material-icons">arrow_drop_down</i>
+        <i ng-if="vm.getShowDemo()" class="material-icons">arrow_drop_up</i>
+      </a>
+
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding demo-content" ng-show="vm.getShowDemo()">
+    <div class="iframe_holder">
+      <iframe width="{{vm.width}}" height="{{vm.height}}"ng-src="{{vm.url}}" frameborder="0" allowfullscreen="allowfullscreen">
+        Loading plunk...
+      </iframe>
+    </div>
+  </md-content> -->
+
+<card-content title="Demo" collapsible="true" open-on-start="true">
+  <div class="iframe_holder">
+    <iframe width="{{vm.width}}" height="{{vm.height}}" ng-src="{{vm.url}}" frameborder="0" allowfullscreen="allowfullscreen">
+      Loading plunk...
+    </iframe>
+  </div>
+</card-content>

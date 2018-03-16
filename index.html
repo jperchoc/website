@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="lib/prism.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="lib/scrollbars.css">
+
+</head>
+
+<body ng-app="BlankApp" layout="column" ng-cloak ng-controller="AppController as vm">
+  
+  <section layout="row" flex>
+
+    <side-bar-left></side-bar-left>
+
+    <md-content flex layout-padding id="style-13" >
+        <div layout-align="top center" ng-view ng-controller="AppController as vm">
+        </div>
+        <div flex></div>
+      </md-content>
+  </section>
+  
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.5/angular-sanitize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.17.0/angular-translate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.17.0/angular-translate-loader-static-files.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
+  <script src="lib/prism.js"></script>
+  
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
+  <script src="app.js"></script>
+  <script src="project.service.js"></script>
+  <script src="directives/sidebar/sidebar.service.js"></script>
+  <script src="directives/sidebar/sidebar.directive.js"></script>
+  <script src="directives/demo/demo.directive.js"></script>
+  <script src="directives/codeexemple/codeexemple.directive.js"></script>
+  <script src="directives/cardcontent/cardcontent.directive.js"></script>
+
+
+</body>
+
+</html>

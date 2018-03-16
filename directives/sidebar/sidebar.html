@@ -1,0 +1,69 @@
+<!-- <md-button ng-hide="$mdMedia('gt-md')" class="md-primary md-fab md-fab-top-left">
+    FAB #
+</md-button> -->
+
+  <md-sidenav 
+  style="height: 100%!important" 
+  class="md-sidenav-left" 
+  md-component-id="left" 
+  md-is-locked-open="$mdMedia('gt-md')" 
+  md-whiteframe="4" 
+  md-colors="{background: 'primary-700'}">
+    <!-- <md-toolbar md-colors="{background: 'accent-700'}">
+      <h1 class="md-toolbar-tools">Coucou !</h1>
+    </md-toolbar>
+    <br/> -->
+    <!-- About me -->
+    <md-toolbar md-dynamic-height md-border-bottom>
+        <div class="md-toolbar-tools ">
+          <a href="" ng-click="vm.dropdownaboutmeopened = !vm.dropdownaboutmeopened">
+            <h3>
+                <i 
+                  style="vertical-align: bottom"
+                  class="material-icons">{{vm.dropdownaboutmeopened ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</i>
+                About me
+            </h3>
+          </a>
+          <span flex="" class="flex"></span>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding" id="style-12" ng-show="vm.dropdownaboutmeopened" md-colors="{background: 'primary-700'}">
+          <a style="display:block"
+          ng-repeat="link in vm.links.aboutLinks" 
+          class="md-button md-ink-ripple" 
+          ng-class="{'md-raised' : vm.isSelected(link)}" 
+          ng-href="#/{{link.url}}"
+          ng-click="vm.setSelected(link)"
+        >
+          {{link.title}}
+        </a>
+      </md-content>
+    <!-- My projects -->
+    <md-toolbar md-dynamic-height md-border-bottom>
+        <div class="md-toolbar-tools">
+          <a href="" ng-click="vm.dropdownprojectopened = !vm.dropdownprojectopened">
+            <h3>
+                <i 
+                style="vertical-align: bottom"
+                class="material-icons">{{vm.dropdownprojectopened ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</i>
+              My projects
+            </h3>
+          </a>
+          <span flex="" class="flex"></span>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding" id="style-12" ng-show="vm.dropdownprojectopened" md-colors="{background: 'primary-700'}">
+          <a style="display:block"
+          
+          ng-repeat="link in vm.links.projectLinks" 
+          class="md-button md-ink-ripple" 
+          ng-class="{'md-raised' : vm.isSelected(link)}" 
+          ng-href="#/{{link.url}}"
+          ng-click="vm.setSelected(link)"
+        >
+          {{link.title}}
+        </a>
+      </md-content>
+
+    
+  </md-sidenav>

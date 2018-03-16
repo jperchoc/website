@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script> -->
+    <script data-require="p5.js@*" data-semver="0.5.14" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
+    <script data-require="p5.dom.js@*" data-semver="0.5.7" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.dom.min.js"></script>
+    <script src="http://cs.stanford.edu/people/karpathy/convnetjs/build/convnet-min.js"></script>
+    <script src="https://cs.stanford.edu/people/karpathy/convnetjs/build/util.js"></script>
+    <script src="https://cs.stanford.edu/people/karpathy/convnetjs/build/deepqlearn.js"></script>
+    <script src="https://cs.stanford.edu/people/karpathy/reinforcejs/lib/rl.js"></script>
+    <script src="game.js"></script>
+    <script src="snake.js"></script>
+    <script src="agent.js"></script>
+    <script src="script.js"></script>
+    <style>
+      input[type="number"] {
+        max-width: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+      <div id="sketch-holder"></div>
+
+      <button onclick="enableWalls = !enableWalls; snakeGame.toggleEdges(enableWalls);">Toggle walls</button>
+      <br/>
+
+      Speed : <button onclick="itt=1000; mod=1;">Very fast</button>
+      <button onclick="itt=500; mod=1;">Fast</button>
+      <button onclick="itt=1; mod=3;">Normal</button>
+      <br/>
+
+      Score : <input id="scoretxt" disabled="disabled" />
+      <br/>
+      
+      Input mode : 
+      <input type="radio" name="inputMode" value="0" id="inputModeGrid"/>Grid mode
+      <input type="radio" name="inputMode" value="1" id="inputModeNeighbour" />Neighbour mode<br/>
+      NeighbourSize : <input type="number" min="1" max="5" step="1" id="neighbourSize">
+      <br/>
+      Update mode : 
+      <input type="radio" name="updateMode" value="qlearn" id="qlearn"/>qlearn
+      <input type="radio" name="updateMode" value="sarsa" id="sarsa" />sarsa
+      <br/>
+      Gamma : <input type="number" min="0" max="1" step="0.1" id="gamma"><button onclick="brain.agent.gamma = document.getElementById('gamma').value">Update</button><br/>
+      Epsilon : <input type="number" min="0" max="1" step="0.01" id="epsilon"><button onclick="brain.agent.epsilon = document.getElementById('epsilon').value">Update</button><br/>
+      Alpha : <input type="number" min="0" max="1" step="0.001" id="alpha"><button onclick="brain.agent.alpha = document.getElementById('alpha').value">Update</button><br/>
+      Add experience every : <input type="number" min="1" step="1" id="experience_add_every"> step <button onclick="brain.agent.experience_add_every = document.getElementById('experience_add_every').value">Update</button><br/>
+      tderror_clamp : <input type="number" min="0" max="1" step="0.1" id="tderror_clamp"><button onclick="brain.agent.tderror_clamp = document.getElementById('tderror_clamp').value">Update</button><br/>
+      Hidden units : <input type="number" min="1"  step="10" id="num_hidden_units"><br/>
+      <button onclick="brain = new Agent(getSpecs());">Reset brain</button>
+  </body>
+
+</html>

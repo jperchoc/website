@@ -1,0 +1,8 @@
+{
+  "TEST": "Bonjour le monde !",
+  "Projects": {
+    "GuitarChords": {
+      "Presentation": "This is a quick tool for musicians, especially guitarist. It allows you to see which notes are part of a chord, and where they are."
+    }
+  }
+}
