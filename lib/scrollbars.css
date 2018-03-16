@@ -246,3 +246,20 @@
 #style-13::-webkit-scrollbar-thumb:active {
   background: rgba(245, 245, 245, 0.9);
 }
+
+
+#style-14::-webkit-scrollbar {
+	width: 10px;
+	background-color: rgba(5, 5, 5, 0.295)
+}
+#style-14::-webkit-scrollbar-thumb {
+  background: rgba(5, 5, 5, 0.6);
+}
+
+#style-14::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 5, 5, 0.8);
+}
+
+#style-14::-webkit-scrollbar-thumb:active {
+  background: rgba(5, 5, 5, 0.9);
+}
