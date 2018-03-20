@@ -13,9 +13,7 @@ function draw() {
   background("#fffeea");
   game.draw();
   //handle cursor
-  if ((mouseX>=10 && mouseX <=380) && ((mouseY >= 90 && mouseY < 90+85) ||
-    (mouseY >= 90 + 15 + 85 && mouseY < 90 + 15 + 85 + 85) ||
-    (mouseY >= 90 + 2*(15 + 85) && mouseY < 90 + 2*(15 + 85) + 85))) {
+  if (getButtonClicked(mouseX, mouseY) !== -1) {
     cursor(HAND);
   } else {
     cursor(ARROW);
@@ -25,15 +23,28 @@ function draw() {
 function mousePressed() {
   if (game.gameOver) game.reset();
   else {
-    if (mouseX>=10 && mouseX <=380) {
-      if (mouseY >= 90 && mouseY < 90+85) {
-        game.click(0);
-      } else if (mouseY >= 90 + 15 + 85 && mouseY < 90 + 15 + 85 + 85) {
-        game.click(1);
-      } else if (mouseY >= 90 + 2*(15 + 85) && mouseY < 90 + 2*(15 + 85) + 85) {
-        game.click(2);
-      }
-    }
+    let idxBtn = getButtonClicked(mouseX, mouseY);
+    if (idxBtn !== -1)
+      game.click(idxBtn);
   }
   return false;
+}
+
+function getButtonClicked(x, y) {
+  let idx = -1;
+  let x0 = 10;
+  let x1 = 390;
+  let yb0 = 90;
+  let btnH = 85;
+  let marginBtn = 15;
+  if (x>=x0 && x <=x1) {
+    if (y >= yb0 && y < yb0+btnH) {
+      idx = 0;
+    } else if (y >= yb0 + marginBtn + btnH && y < yb0 + marginBtn + btnH + btnH) {
+      idx = 1;
+    } else if (y >= yb0 + 2*(marginBtn + btnH) && y < yb0 + 2*(marginBtn + btnH) + btnH) {
+      idx = 2;
+    }
+  }
+  return idx;
 }

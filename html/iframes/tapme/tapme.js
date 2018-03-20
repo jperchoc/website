@@ -28,12 +28,12 @@ class TapMe {
       fill(200);
       stroke(0);
       strokeWeight(1);
-      rect(10, 10, 380, 20);
+      rect(10, 10, 380, 20, 20);
       //draw progressbar foreground
       noStroke();
       let w = this.timeLeft * 379 / this.totalTime;
       fill(50, 200, 50);
-      rect(11, 11, w, 19);
+      rect(11, 11, w, 19, 20);
       //draw instruction
       fill(0);
       textAlign(CENTER, CENTER);
@@ -45,19 +45,19 @@ class TapMe {
 
       //draw button 1
       fill(this.frameItems.colors[0].color);
-      rect(10, 90, 380, buttonHeight);
+      rect(10, 90, 380, buttonHeight, 20);
       fill(255);
       text(this.frameItems.buttons[0], 380/2, 90 + buttonHeight/2);
 
       //draw button 2
       fill(this.frameItems.colors[1].color);
-      rect(10, 90 + buttonSpace + buttonHeight, 380, buttonHeight);
+      rect(10, 90 + buttonSpace + buttonHeight, 380, buttonHeight, 20);
       fill(255);
       text(this.frameItems.buttons[1], 380/2, 90  + buttonSpace + buttonHeight +  buttonHeight/2);
 
       //draw button 3
       fill(this.frameItems.colors[2].color);
-      rect(10, 90 + buttonSpace*2 + buttonHeight*2, 380, buttonHeight);
+      rect(10, 90 + buttonSpace*2 + buttonHeight*2, 380, buttonHeight, 20);
       fill(255);
       text(this.frameItems.buttons[2], 380/2, 90 + + buttonSpace*2 + buttonHeight*2 + buttonHeight/2);
 
