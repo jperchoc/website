@@ -61,6 +61,9 @@
         .when('/takuzu', {
           templateUrl: "html/projects/takuzu.html"
         })
+        .when('/tapme', {
+          templateUrl: "html/projects/tapme.html"
+        })
         .otherwise({redirectTo: '/home'});
 
         $translateProvider.useStaticFilesLoader({
