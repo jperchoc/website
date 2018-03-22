@@ -20,6 +20,7 @@
             {title: "2048", url: "2048"},
             {title: "Sudoku", url: "sudoku"},
             {title: "Takuzu", url: "takuzu"},
+            {title: "MineSweeper", url: "minesweeper"},
             {title: "TapMe", url: "tapme"},
           ];
 
